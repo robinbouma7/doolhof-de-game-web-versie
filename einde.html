@@ -1,0 +1,35 @@
+
+<title>
+    einde!!!
+</title>
+<style>
+    #nogeenkeer {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+    }
+</style>
+<script>
+    function score() {
+    document.getElementById("score").innerHTML = 'score: ' + sessionStorage.getItem('score');
+    document.getElementById("doolhof").innerHTML = 'doolhof ' + sessionStorage.getItem('doolhof');
+    console.log(sessionStorage.getItem('score'));
+    console.log( sessionStorage.getItem('doolhof'));
+    }
+
+    function vorigdoolhof() {
+        doolhof = sessionStorage.getItem('doolhof');
+        window.location.href = 'index.php?pagina=doolhof' + doolhof;
+    }
+</script>
+<html>
+    <body onload="score()">
+        
+        <h4 id='doolhof'></h4><br>
+    <p id='score'></p>
+    <br>
+    <a id='nogeenkeer' onclick='vorigdoolhof()'>nog een keer proberen</a><br><br>
+    <a href='index.php?pagina=level_select'>ander level</a><br><br>
+    <a href='index.php'>home scherm</a>
+    </body>
+</html>
