@@ -135,8 +135,8 @@
                         
                 }
                 collision()
-                finish_check()
                 coin_collect()
+                finish_check()
                 //onderstand is muziek starten als je beweeg, zodat het ook op chrome werkt.
                 document.getElementById('muziek').loop = true;
                 document.getElementById('muziek').play();
@@ -170,7 +170,7 @@
 
         function finished() {
             clearInterval(time_interval_var);
-            sessionStorage.setItem('score', score_old);
+            sessionStorage.setItem('score', document.getElementById('score').innerHTML);
             sessionStorage.setItem('doolhof', '1');
             window.location.href = 'index.php?pagina=einde';
         }
@@ -204,6 +204,7 @@
                 else {
                     console.log("collision true");
                     document.getElementById('explosion').play();
+                    document.getElementById('score').innerHTML =  'dacht je echt dat je zo kon finishen?';
                     //voor makkelijker testen volgende 2 regels comments maken.
                     alive = false;
                     setTimeout(reset_player, 1000);
@@ -218,7 +219,7 @@
             player.left = parseInt(document.getElementById('player').style.left);
             player.bottom = parseInt(document.getElementById('player').style.top) + parseInt(document.getElementById('player').style.height);
             player.right = parseInt(document.getElementById('player').style.left) + parseInt(document.getElementById('player').style.width);      
-            
+           
             
             
             var finish_top = parseInt(document.getElementById('finish').style.top) + 0.01;
@@ -237,11 +238,13 @@
             }
             
             else {
+               
                 console.log("finished");
                 document.getElementById('victory').play();
                 finished();
+                
             }
-            
+        
             
 
         }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<style>
+		html,body,main{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>PO2 oef 3</title>
+	<script>
+		function get_key(event) {
+			var left_old, left_new, score_new;
+
+			top_old = parseInt(document.getElementById('blok').style.top);
+			left_old = parseInt(document.getElementById('blok').style.left);
+			score_old = parseInt(document.getElementById('score').innerHTML);
+			switch(event.keyCode) {
+				case 37:
+					// links
+					if (left_old > 0) {
+					document.getElementById('blok').style.left = left_old - parseInt(Math.random() * 25) + 'px';
+					document.getElementById('score').innerHTML =  (score_old + 1);
+					break;
+					}
+					else {
+					break;
+					}
+				case 38:
+					// boven
+					if (top_old > 0) {
+					document.getElementById('blok').style.top = top_old - parseInt(Math.random() * 25) + 'px';
+					document.getElementById('score').innerHTML =  (score_old + 1);
+					break;
+					}
+					else {
+						break;
+					}
+				case 39:
+					// rechts
+					document.getElementById('blok').style.left = left_old + parseInt(Math.random() * 25) + 'px';
+					document.getElementById('score').innerHTML =  (score_old + 1);
+					break;
+				case 40:
+					// onder
+					document.getElementById('blok').style.top = top_old + parseInt(Math.random() * 25) + 'px';
+					document.getElementById('score').innerHTML =  (score_old + 1);
+					break;
+				default:
+					// doe nix
+			}
+		}
+    </script>
+</head>
+<body onkeydown="get_key(event)">
+	<main>
+		<div id="blok" style="position: absolute; left:0px; top:50px; width: 70px; height: 70px; background-color: #000099; color: white; text-align: center;" onclick="click_on_div()">
+			use<br>arrow<br>buttons!
+		</div>
+		<p id="score">0</p>
+	</main>
+</body>
+</html>

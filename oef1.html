@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<style>
+		html,body,main{
+			width: 100%;
+			height: 100%;
+			background: black;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>PO2 oef 1</title>
+	<script>
+		var move_to = 'bottom';
+		function click_on_div() {
+			var top_old, top_new;
+
+			top_old = parseInt(document.getElementById('blok').style.top);
+			if(move_to === 'bottom'){
+				document.getElementById('blok').style.top = top_old + 10 + 'px';
+			}else{
+				document.getElementById('blok').style.top = top_old - 10 + 'px';
+			}
+
+			top_new = parseInt(document.getElementById('blok').style.top);
+			if(top_new > 200){
+				move_to = 'top';
+			}
+			if(top_new < 100){
+				move_to = 'bottom';
+			}
+		}
+	</script>
+</head>
+<body>
+	<main>
+		<div id="blok" class="image" style="content:url(placeholder.png); position: absolute; left:100px; top:100px; width: 70px; height: 70px; background-color: #000099; color: white; text-align: center;" onclick="click_on_div()">
+			druk<br>op<br>mij
+		</div>
+	</main>
+</body>
+</html>

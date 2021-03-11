@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<style>
+		html,body,main{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>PO2 oef 2</title>
+	<script>
+		var time_interval_var;
+		var interrupt_interval_var;
+		var move_to = 'right';
+		function move_div() {
+			var left_old, left_new;
+
+			left_old = parseInt(document.getElementById('blok').style.left);
+			if(move_to === 'right'){
+				document.getElementById('blok').style.left = left_old + 25 + 'px';
+			}else{
+				document.getElementById('blok').style.left = left_old - 25 + 'px';
+			}
+
+			left_new = parseInt(document.getElementById('blok').style.left);
+			if(left_new > 300){
+				move_to = 'left';
+			}
+			if(left_new < 100){
+				move_to = 'right';
+			}
+		}
+        
+		function stop_interval() {
+			clearInterval(time_interval_var);
+			clearInterval(interrupt_interval_var);
+			document.getElementById('blok').style.display = 'none';
+			document.getElementById('start').style.display = 'block';
+			document.getElementById('start').innerHTML = 'Goed zo!<br>Start!';
+		}
+
+		function interrupt_interval() {
+			clearInterval(time_interval_var);
+			clearInterval(interrupt_interval_var);
+			document.getElementById('blok').style.display = 'none';
+			document.getElementById('start').style.display = 'block';
+			document.getElementById('start').innerHTML = 'jammer, tijd voorbij!<br>Start!';
+		}
+
+		function start_interval() {
+			time_interval_var = setInterval(move_div, 200);
+			document.getElementById('blok').style.display = 'block';
+			document.getElementById('start').style.display = 'none';
+			interrupt_interval_var = setInterval(interrupt_interval, 10000);
+		}
+	</script>
+</head>
+<body>
+<main style="width: 100%; height: 100%;">
+	<main>
+		<div id="blok" style="display: none; position: absolute; left:0px; top:0px; width: 70px; height: 70px; background-color: #000099; color: white; text-align: center; vertical-align: middle;" onclick="stop_interval()">
+			Click<br>On<br>Me!
+		</div>
+		<div id="start" style="display: block; position: absolute; top: 230px; left: 10px; width: 100px; height: 60px; background-color: black; color: white; text-align: center;" onclick="start_interval()"></div>
+			Start!
+		</div>
+	</main>
+</body>
+</html>
