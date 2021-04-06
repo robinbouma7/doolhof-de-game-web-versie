@@ -1,0 +1,6 @@
+naam: robin
+js score: 8866
+php score: 8866
+doolhof: 1
+score session: 8866
+pogingen: 1

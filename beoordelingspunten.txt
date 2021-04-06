@@ -1,0 +1,78 @@
+hier staan de bestanden waar beoordelingspunten van po3 in voor komen, 
+aangezien ik erg veel bestanden heb vond ik het een goed idee om alles op een rijtje te zetten omdat het anders zo veel zoeken is.
+
+
+php variabelen:
+
+index.php: pagina variabelen voor de pagina leden.
+doolhoven / einde.php: variabelen score, doolhof en pogingen om die js variabelen php in te krijgen.
+
+
+$_GET:
+
+index.php: voor pagina opvragen
+einde.php: voor js variabelen uit de url krijgen.
+
+
+if statements:
+
+js:
+doolhoven hebben best een aantal if statements.
+
+php: 
+index.php: voor kijken of pagina variabele in de url is.
+einde.php: in de highscore veel om het goede bericht te krijgen.
+
+
+switch:
+
+index.php: voor pagina variabele.
+
+
+include:
+
+index.php: veel meer dan 3 omk pagina te krijgen
+
+
+echo:
+
+in een groot deel van de bestanden, als er php code is is er waarschijnlijk een echo aanwezig. dus in ieder geval niet moeilijk te vinden.
+
+
+$_GET teruggeven in functie:
+
+moet nog.
+
+
+$_SESSION:
+
+index.php: hier start hij.
+doolhoven: voor aantal pogingen als die al gedefineerd zijn.
+einde.php: hier worden ze score en de pogingen in de session opgeslagen.
+upload_score.php: hier word de naam opgeslagen zodat je die de volgende keer niet in hoef te vullen.
+
+
+bijhouden spelers / score in session:
+
+einde.php: scores en pogingen opgeslagen.
+upload_score.php: naam opslaan.
+
+
+array:
+
+in array.php + arrayresultaat.php
+ik had geen idee om het te implementeren in mijn spel dus heb ik een array maker gemaakt.
+
+
+gebruik txt bestanden:
+
+upload_score.php: worden de waardes in einde.php opgeslagen in een txt bestand in de map scores.
+
+
+meerdere paginas includen:
+
+secret.php, upload_score.php, array.php, arrayresultaat.php, 404.php: include kleuren.css voor de kleuren van het spel.
+
+dit kan ik nog met de doolhoven maken om makkelijker verandereingen te maken mat alle doolhoven maar dat kost meer moeite dan hoe et nu is dus ik leg wel uit hoe ik het dan had gedaan.
+gewoon de code die niet verschilt zoals de movement (niet collision omdat de for loop moet worden aangepast aan hoeveel muren er zijn) en de andere dingen in een apart bestand. 
+dan in de script het bestand. includen (<?php include("doolhof_code.php"); ?>).

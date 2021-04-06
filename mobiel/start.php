@@ -42,6 +42,9 @@ html {
     margin: 0 auto;
 }
 #link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
     margin: 5%;
     font-size: 150%;
 }
@@ -50,15 +53,10 @@ html {
     text-align: center;
 }
 
-#copyright {
-    color: white;
-    text-align: center;
-    font-size: 85%
-}
-
 </style>
+    <head>
 
-    
+    </head>
     <body>
     <h1 id='naam_game'>doolhof, de game!</h1>
     <h3 id='onder_tekst'>ft. ricardo</h3>
@@ -72,10 +70,8 @@ html {
 </div>  
 <br><br><br>
 <div id='links'>
-<a id='link' href='mobiel/index.php'>mobiele versie</a> <a id='link' href='https://www.swcin.nl/robinbouma/PO1/robin.html'>profiel pagina</a>  
+<a id='link' href='https://www.swcin.nl/robinbouma/PO3/index.php'>pc versie</a> <a id='link' href='https://www.swcin.nl/robinbouma/PO1/robin.html'>profiel pagina</a>  
 </div>
-<br><br><br><br>
-<p id='copyright'>© robin bouma 2021</p>
 <?php 
 echo $pc;
 ?>

@@ -2,6 +2,21 @@
 <title>
     level select
 </title>
+<?php
+$random_doolhof = rand(1, 1);
+?>
+<script>
+    function randomdoolhof() {
+        
+        var doolhof = parseInt((Math.random() * 1) + 1);
+
+        window.location.href = 'index.php?pagina=doolhof' + doolhof;
+        
+    }
+    function terug() {
+        window.location.href = 'index.php';
+    }
+</script> 
 <style>
     html {
         background-color: black;
@@ -51,33 +66,22 @@
         cursor: pointer;
     }
 </style>
-<script>
-    function randomdoolhof() {
-        
-        var doolhof = parseInt((Math.random() * 2) + 1);
-
-        window.location.href = 'index.php?pagina=doolhof' + doolhof;
-        
-    }
-    function terug() {
-        window.location.href = 'index.php';
-    }
-</script>    
 
 <html>
     <body>
+        
+        
         <h1>level select</h1>
 
         <a id='randomdoolhof' class='button' onclick='randomdoolhof()'></a><br>
-        
+
         <a id='doolhof1' class='button' href='index.php?pagina=doolhof1'></a> <br>
-        
+
         <a id='doolhof2' class='button' href='index.php?pagina=doolhof2'></a>
         <br>
         <div id='button'>
         <button onclick='terug()'>terug</button>
         </div>
         <br><br><br><br>
-        
     </body>
 </html>

@@ -1,0 +1,7 @@
+naam: testtesttest
+js score: 8110
+php score: 8110
+js doolhof: 1
+php doolhof: 1
+score session: dacht je echt dat je zo kon finishen?
+pogingen: 7

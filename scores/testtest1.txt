@@ -1,0 +1,7 @@
+naam: testtest
+js score: 7320
+php score: 7320
+js doolhof: 1
+php doolhof: 1
+score session: 7320
+pogingen: 1
