@@ -19,6 +19,7 @@
         var alive = true;
         var collected = false;
         var click = 0;
+        var poging = <?php echo $_SESSION['pogingen']; ?>;
         
         function get_key(event) {
             //zorgt dat score omlaag gaat pas als je voor de eerste keer beweeg en niet als de pagina laad zoals eerder.
@@ -42,6 +43,7 @@
                     
                     case 37:
                         // links
+                        
                         if (left_old > 0) {
                             document.getElementById('player').style.left = left_old - 4 + '%';
                             document.getElementById('score').innerHTML =  (score_old - 10);
@@ -64,82 +66,88 @@
                         else {
                             break;
                         }
-                    case 38:
-                        // omhoog
-                        if (top_old > 0) {
-                            document.getElementById('player').style.top = top_old - 4 + '%';
-                            document.getElementById('score').innerHTML =  (score_old - 10);
-                            var randomsound = parseInt(Math.random() * 3)
-                            console.log(randomsound);
-                            if(randomsound < 1){
-                                document.getElementById('movement1').play();
-                                console.log("s1");
-                            }
-
-                            else {
-                                document.getElementById('movement2').play();
-                                console.log("s2");
-                            }
                     
-                            break;
-                        }
+                    case 38:
+                    
+                        // omhoog
                         
-                        else {
-                            break;
-                        }
+                            if (top_old > 0) {
+                                document.getElementById('player').style.top = top_old - 4 + '%';
+                                document.getElementById('score').innerHTML =  (score_old - 10);
+                                var randomsound = parseInt(Math.random() * 3)
+                                console.log(randomsound);
+                                if(randomsound < 1){
+                                    document.getElementById('movement1').play();
+                                    console.log("s1");
+                                }
+
+                                else {
+                                    document.getElementById('movement2').play();
+                                    console.log("s2");
+                                }
+                        
+                                break;
+                            }
+                            
+                            else {
+                                break;
+                            }
+                        
                     case 39:
-                        // rechts
-                        if (right_edge <= 99) {
-                            document.getElementById('player').style.left = left_old + 4 + '%';
-                            document.getElementById('score').innerHTML =  (score_old - 10);
-                            var randomsound = parseInt(Math.random() * 3)
-                            console.log(randomsound);
-                            if(randomsound < 1){
-                                document.getElementById('movement1').play();
-                                console.log("s1");
-                            }
+                        // rechts                       
+                            if (right_edge <= 99) {
+                                document.getElementById('player').style.left = left_old + 4 + '%';
+                                document.getElementById('score').innerHTML =  (score_old - 10);
+                                var randomsound = parseInt(Math.random() * 3)
+                                console.log(randomsound);
+                                if(randomsound < 1){
+                                    document.getElementById('movement1').play();
+                                    console.log("s1");
+                                }
 
-                            else {
-                                document.getElementById('movement2').play();
-                                console.log("s2");
+                                else {
+                                    document.getElementById('movement2').play();
+                                    console.log("s2");
+                                }
+                                break;
                             }
-                            break;
-                        }
+                            
+                            else{
+                                break; 
+                            }
                         
-                        else{
-                            break; 
-                        }
-                
-                        
+                            
                     case 40:
-                        // omlaag
-                        if (bottom_edge <= 99) {
-                            document.getElementById('player').style.top = top_old + 4 + '%';
-                            document.getElementById('score').innerHTML =  (score_old - 10);
-                            var randomsound = parseInt(Math.random() * 3)
-                            console.log(randomsound);
-                            if(randomsound < 1){
-                                document.getElementById('movement1').play();
-                                console.log("s1");
-                            }
+                        // omlaag 
+                            if (bottom_edge <= 99) {
+                                document.getElementById('player').style.top = top_old + 4 + '%';
+                                document.getElementById('score').innerHTML =  (score_old - 10);
+                                var randomsound = parseInt(Math.random() * 3)
+                                console.log(randomsound);
+                                if(randomsound < 1){
+                                    document.getElementById('movement1').play();
+                                    console.log("s1");
+                                }
 
-                            else {
-                                document.getElementById('movement2').play();
-                                console.log("s2");
+                                else {
+                                    document.getElementById('movement2').play();
+                                    console.log("s2");
+                                }
+                                break;
                             }
-                            break;
-                        }
-                        
-                        else {
-                            break;
-                        }
-                        
+                            
+                            else {
+                                break;
+                            }
+                                               
                         
                     
                     default:
+                    //geen input dus niks
+                    break;
 
                     
-                        
+                    
                 }
                 collision()
                 finish_check()
@@ -179,9 +187,10 @@
         
 
         function finished() {
-            sessionStorage.setItem('score', document.getElementById('score').innerHTML);
-            sessionStorage.setItem('doolhof', '2');
-            window.location.href = 'index.php?pagina=einde&score=' + document.getElementById('score').innerHTML + '&doolhof=2';
+           
+            sessionStorage.setItem('doolhof', '3');
+            sessionStorage.setItem('pogingen', poging);
+            window.location.href = 'index.php?pagina=einde&score=' + document.getElementById('score').innerHTML + '&doolhof=3&pogingen=' + poging;
         }
 
 
@@ -193,7 +202,7 @@
             player.bottom = parseInt(document.getElementById('player').style.top) + parseInt(document.getElementById('player').style.height);
             player.right = parseInt(document.getElementById('player').style.left) + parseInt(document.getElementById('player').style.width);      
             //als het maximale getal te hoog is werkt de finish niet.
-                for(var i = 1; i < 41; ++i) {
+                for(var i = 1; i < 10; ++i) {
                
                 //0.01 steeds zodat er geen collision is als ze elkaar raken maar niet overlappen.
                 var muur_top = parseInt(document.getElementById('muur' + i).style.top) + 0.01;
@@ -249,8 +258,10 @@
             
             else {
                 console.log("finished");
-                //moet nog nieuw geluid vinden voor einde, in ieder geval een kortere.
-                //document.getElementById('victory').play();
+                alive = false;
+                //document.getElementById('victory').play(); oud geluid
+                clearInterval(time_interval_var);
+                sessionStorage.setItem('score', document.getElementById('score').innerHTML);
                 finished();
             }
             
@@ -336,6 +347,7 @@
             document.getElementById('player').style.top =  20 +  "%";
             document.getElementById('player').style.left =  0 + "%";  
             reset_timer();
+            poging++; 
             alive = true;
             collected = false;
             make_coin();
@@ -368,7 +380,7 @@
 
             <div id="muur10" style="position: absolute; top: 32%; left: 13%; height: 20%; width: 1%; background-color: white;"></div>
 
-            <div id="muur10" style="position: absolute; top: 51%; left: 14%; height: 1%; width: 10%; background-color: white;"></div>
+            <div id="muur11" style="position: absolute; top: 51%; left: 14%; height: 1%; width: 10%; background-color: white;"></div>
 
             
 

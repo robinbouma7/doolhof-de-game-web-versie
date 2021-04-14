@@ -1,0 +1,7 @@
+naam: testtest
+js score: dacht je echt dat je zo kon finishen?
+php score: dacht je echt dat je zo kon finishen?
+js doolhof: 1
+php doolhof: 1
+score session: dacht je echt dat je zo kon finishen?
+pogingen: 2

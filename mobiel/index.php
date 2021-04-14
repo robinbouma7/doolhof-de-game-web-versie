@@ -21,7 +21,7 @@ if(isset($_GET["pagina"])){
             break;
     
             case "doolhof2": 
-                include("doolhof_mobiel2.html");
+                include("doolhof_mobiel2.php");
             break;
             
             case "einde":

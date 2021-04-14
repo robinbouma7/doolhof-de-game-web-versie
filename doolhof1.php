@@ -52,6 +52,7 @@ if (!isset($_SESSION['pogingen'])) {
                     
                     case 37:
                         // links
+                        
                         if (left_old > 0) {
                             document.getElementById('player').style.left = left_old - 4 + '%';
                             document.getElementById('score').innerHTML =  (score_old - 10);
@@ -74,79 +75,85 @@ if (!isset($_SESSION['pogingen'])) {
                         else {
                             break;
                         }
-                    case 38:
-                        // omhoog
-                        if (top_old > 0) {
-                            document.getElementById('player').style.top = top_old - 4 + '%';
-                            document.getElementById('score').innerHTML =  (score_old - 10);
-                            var randomsound = parseInt(Math.random() * 3)
-                            console.log(randomsound);
-                            if(randomsound < 1){
-                                document.getElementById('movement1').play();
-                                console.log("s1");
-                            }
-
-                            else {
-                                document.getElementById('movement2').play();
-                                console.log("s2");
-                            }
                     
-                            break;
-                        }
+                    case 38:
+                    
+                        // omhoog
                         
-                        else {
-                            break;
-                        }
+                            if (top_old > 0) {
+                                document.getElementById('player').style.top = top_old - 4 + '%';
+                                document.getElementById('score').innerHTML =  (score_old - 10);
+                                var randomsound = parseInt(Math.random() * 3)
+                                console.log(randomsound);
+                                if(randomsound < 1){
+                                    document.getElementById('movement1').play();
+                                    console.log("s1");
+                                }
+
+                                else {
+                                    document.getElementById('movement2').play();
+                                    console.log("s2");
+                                }
+                        
+                                break;
+                            }
+                            
+                            else {
+                                break;
+                            }
+                        
                     case 39:
-                        // rechts
-                        if (right_edge <= 99) {
-                            document.getElementById('player').style.left = left_old + 4 + '%';
-                            document.getElementById('score').innerHTML =  (score_old - 10);
-                            var randomsound = parseInt(Math.random() * 3)
-                            console.log(randomsound);
-                            if(randomsound < 1){
-                                document.getElementById('movement1').play();
-                                console.log("s1");
-                            }
+                        // rechts                       
+                            if (right_edge <= 99) {
+                                document.getElementById('player').style.left = left_old + 4 + '%';
+                                document.getElementById('score').innerHTML =  (score_old - 10);
+                                var randomsound = parseInt(Math.random() * 3)
+                                console.log(randomsound);
+                                if(randomsound < 1){
+                                    document.getElementById('movement1').play();
+                                    console.log("s1");
+                                }
 
-                            else {
-                                document.getElementById('movement2').play();
-                                console.log("s2");
+                                else {
+                                    document.getElementById('movement2').play();
+                                    console.log("s2");
+                                }
+                                break;
                             }
-                            break;
-                        }
+                            
+                            else{
+                                break; 
+                            }
                         
-                        else{
-                            break; 
-                        }
-                
-                        
+                            
                     case 40:
-                        // omlaag
-                        if (bottom_edge <= 99) {
-                            document.getElementById('player').style.top = top_old + 4 + '%';
-                            document.getElementById('score').innerHTML =  (score_old - 10);
-                            var randomsound = parseInt(Math.random() * 3)
-                            console.log(randomsound);
-                            if(randomsound < 1){
-                                document.getElementById('movement1').play();
-                                console.log("s1");
-                            }
+                        // omlaag 
+                            if (bottom_edge <= 99) {
+                                document.getElementById('player').style.top = top_old + 4 + '%';
+                                document.getElementById('score').innerHTML =  (score_old - 10);
+                                var randomsound = parseInt(Math.random() * 3)
+                                console.log(randomsound);
+                                if(randomsound < 1){
+                                    document.getElementById('movement1').play();
+                                    console.log("s1");
+                                }
 
-                            else {
-                                document.getElementById('movement2').play();
-                                console.log("s2");
+                                else {
+                                    document.getElementById('movement2').play();
+                                    console.log("s2");
+                                }
+                                break;
                             }
-                            break;
-                        }
-                        
-                        else {
-                            break;
-                        }
-                        
+                            
+                            else {
+                                break;
+                            }
+                                               
                         
                     
                     default:
+                    //geen input dus niks
+                    break;
 
                     
                         
@@ -186,8 +193,7 @@ if (!isset($_SESSION['pogingen'])) {
         
 
         function finished() {
-            clearInterval(time_interval_var);
-            sessionStorage.setItem('score', document.getElementById('score').innerHTML);
+            
             sessionStorage.setItem('doolhof', '1');
             sessionStorage.setItem('pogingen', poging);
             window.location.href = 'index.php?pagina=einde&score=' + document.getElementById('score').innerHTML + '&doolhof=1&pogingen=' + poging;
@@ -264,7 +270,9 @@ if (!isset($_SESSION['pogingen'])) {
             else {
                 alive = false;
                 console.log("finished");
-                document.getElementById('victory').play();
+                //document.getElementById('victory').play();    word niet meer gebruikt.
+                clearInterval(time_interval_var);
+                sessionStorage.setItem('score', document.getElementById('score').innerHTML);
                 finished();
                 
             }

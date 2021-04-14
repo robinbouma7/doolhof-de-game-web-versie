@@ -31,7 +31,7 @@ index.php: voor pagina variabele.
 
 include:
 
-index.php: veel meer dan 3 omk pagina te krijgen
+index.php: veel meer dan 3 om de pagina te krijgen
 
 
 echo:
@@ -41,7 +41,9 @@ in een groot deel van de bestanden, als er php code is is er waarschijnlijk een 
 
 $_GET teruggeven in functie:
 
-moet nog.
+einde: hier word via $_get dingen in de form gezet zoals de score, het doolhof en het aantal pogingen. 
+hier kan niet mee vals gespeeld worden want de javascript variabelen worden ook ook opgestuurd en als die van elkaar veranderen dan is het meestal niet echt.
+de score word in de finish_check functie gedaan, dat was eerst in de functie finished maar heb ik verplaatst zodat hij die niet opstuurt als je in console de functie aanroept.
 
 
 $_SESSION:
@@ -73,6 +75,6 @@ meerdere paginas includen:
 
 secret.php, upload_score.php, array.php, arrayresultaat.php, 404.php: include kleuren.css voor de kleuren van het spel.
 
-dit kan ik nog met de doolhoven maken om makkelijker verandereingen te maken mat alle doolhoven maar dat kost meer moeite dan hoe et nu is dus ik leg wel uit hoe ik het dan had gedaan.
+dit kan ik nog met de doolhoven maken om makkelijker verandereingen te maken mat alle doolhoven maar dat kost meer moeite dan hoe het nu is dus ik leg wel uit hoe ik het dan had gedaan.
 gewoon de code die niet verschilt zoals de movement (niet collision omdat de for loop moet worden aangepast aan hoeveel muren er zijn) en de andere dingen in een apart bestand. 
 dan in de script het bestand. includen (<?php include("doolhof_code.php"); ?>).
