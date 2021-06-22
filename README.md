@@ -6,4 +6,4 @@ po2: 10
 
 po3: 10
 
-po4: mee bezig.
+po4: 10
